@@ -11,11 +11,10 @@ def home():
     
     name = input("Enter NBA player name: ")
     url = "https://www.balldontlie.io/api/v1/players?search=" + str(name)
-    get_players = requests.get(url)
-    get_players_json = get_players.json()
-    #pprint.pprint(get_players_json)
-    Lebron = get_players_json['data']
-    pprint.pprint(Lebron)
+    player_info = requests.get(url)
+    player_info_json = player_info.json()
+    player_statistics = player_info_json['data']
+    pprint.pprint(player_statistics)
     return render_template("input.html")
 
 
